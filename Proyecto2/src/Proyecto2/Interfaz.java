@@ -42,22 +42,48 @@ public class Interfaz <E extends Comparable <E>> extends javax.swing.JFrame {
     public Interfaz(Arbol<E> arbol) {
         super();
         this.setArbol(arbol);
-        this.getArbol().construir("src//proyecto2//memoria.txt");
+        this.getArbol().construir("src//Repositorio//memoria.txt");
         this.nodo = arbol.getN();
         this.ganador = false;
     }
     
-    public String recorrer(boolean b) {
+    public String recorrer(boolean bool) {
         if (this.nodo.getNo() == null && this.nodo.getSi() == null) {
             System.out.println("Entre a nodo raiz");
-            if (b == false) {
-                this.getArbol().agregar(a, b, nodo, WIDTH);
+            if (bool == false) {
+                //no se (ganaste). aqui va la pregunta "a" y el input "b"
+                this.getArbol().agregar(a, b, nodo, WIDTH);//Width 2
                 this.ganador = true;
                 return null;
             } else {
-                
+                // adivine (perdiste). muestra la pantalla de adivine!
+                this.ganador = true;
+                return "Adivine!";
+            }
+        } else {
+            if (bool == true) {
+                if (this.nodo.getSi() == null && this.nodo.getNo() != null) {
+                    System.out.println("No se! Cual es el animal?");
+                    // aqui otra vez va el (ganaste)
+                    this.getArbol().agregar(a, b, nodo, WIDTH);//Width 1
+                    this.ganador = true;
+                    return this.nodo.getPregunta();
+                } else {
+                    this.nodo = this.nodo.getSi();
+                }
+            } else {
+                if (this.nodo.getNo() == null && this.nodo.getSi() != null) {
+                    System.out.println("Nose! Me puedes decir la respuesta?");
+                    //aqui otra vez va el (ganaste)
+                    this.getArbol().agregar(a, b, nodo, WIDTH);//Width 0
+                    this.ganador = true;
+                    return this.nodo.getPregunta();
+                } else {
+                    this.nodo = this.nodo.getNo();
+                }
             }
         }
+        return this.nodo.getPregunta();
     }
     
     public Interfaz() {

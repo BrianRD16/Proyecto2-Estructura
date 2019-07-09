@@ -102,7 +102,7 @@ public class Arbol <E extends Comparable <E>> {
     
     public void guardar() {
         try {
-            FileWriter escribir = new FileWriter("src//proyecto2//memoria.txt");
+            FileWriter escribir = new FileWriter("src//Repositorio//memoria.txt");
             try (PrintWriter imprimir = new PrintWriter(escribir)) {
                 imprimir.println(this.toString());
             }

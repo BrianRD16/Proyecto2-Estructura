@@ -1,0 +1,1 @@
+inicio@Bienvenido!! Vamos a jugar. Piensa en un animal y yo trato de adivinar! Tiene mas de 4 patas?,+@Hace telarañas?,++@Araña,+-@Chupa sangre de tu cuerpo?,+-+@Zancudo,-@Ladra?,-+@Perro
