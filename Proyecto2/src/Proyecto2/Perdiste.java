@@ -1,66 +1,9 @@
 
 package Proyecto2;
 
-public class Interfaz <E extends Comparable <E>> extends javax.swing.JFrame {
-    
-    private Arbol<E> arbol;
-    private Nodo<E> nodo;
-    private boolean ganador;
+public class Perdiste extends javax.swing.JFrame {
 
-    public Arbol<E> getArbol() {
-        return arbol;
-    }
-
-    public Nodo<E> getNodo() {
-        return nodo;
-    }
-
-    public boolean isGanador() {
-        return ganador;
-    }
-
-    public Arbol<E> getRoot() {
-        return getArbol();
-    }
-
-    public void setArbol(Arbol<E> arbol) {
-        this.arbol = arbol;
-    }
-
-    public void setNodo(Nodo<E> nodo) {
-        this.nodo = nodo;
-    }
-
-    public void setGanador(boolean ganador) {
-        this.ganador = ganador;
-    }
-
-    public void setRoot(Arbol<E> arbol) {
-        this.setArbol(arbol);
-    }
-
-    public Interfaz(Arbol<E> arbol) {
-        super();
-        this.setArbol(arbol);
-        this.getArbol().construir("src//proyecto2//memoria.txt");
-        this.nodo = arbol.getN();
-        this.ganador = false;
-    }
-    
-    public String recorrer(boolean b) {
-        if (this.nodo.getNo() == null && this.nodo.getSi() == null) {
-            System.out.println("Entre a nodo raiz");
-            if (b == false) {
-                this.getArbol().agregar(a, b, nodo, WIDTH);
-                this.ganador = true;
-                return null;
-            } else {
-                
-            }
-        }
-    }
-    
-    public Interfaz() {
+    public Perdiste() {
         initComponents();
     }
 
@@ -98,20 +41,20 @@ public class Interfaz <E extends Comparable <E>> extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Interfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Perdiste.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Interfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Perdiste.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Interfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Perdiste.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Interfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Perdiste.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Interfaz().setVisible(true);
+                new Perdiste().setVisible(true);
             }
         });
     }

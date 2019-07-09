@@ -61,7 +61,8 @@ public class Nodo <E extends Comparable<E>> {
         this.no = no;
     }
     
-    public String preguntar() {
+    @Override
+    public String toString() {
         if (si == null && no == null) {
             return "," + posicion + "@" + pregunta;
         } else if (si == null && no != null) {
