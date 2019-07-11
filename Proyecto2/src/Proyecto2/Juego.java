@@ -4,6 +4,7 @@ package Proyecto2;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.ImageIcon;
 
 import javax.swing.JFrame;
 import javax.swing.JButton;
@@ -20,32 +21,32 @@ public class Juego <E extends Comparable <E>> extends JFrame implements ActionLi
     public Juego(Arbol<E> arbol) {
         super();
         this.setArbol(arbol);
-        this.getArbol().construir("src//repositorio//memoria.txt");
+        this.getArbol().construir("src//Repositorio//memoria.txt");
         this.nodo = arbol.getN();
         this.ganador = false;
         
         this.setUndecorated(true);
         this.setFocusable(true);
         this.setVisible(true);
-        this.setSize(500, 300);
+        this.setSize(450, 180);
         this.setResizable(false);
         this.getContentPane().setLayout(null);
         this.setLocationRelativeTo(null);
         
         this.si = new JButton("Si");
-        this.si.setBounds(0, this.getHeight() - 60, 200, 60);
+        this.si.setBounds(30, this.getHeight() - 40, 130, 30);
         this.add(this.si);
         this.si.addActionListener(this);
         this.si.setVisible(true);
         
         this.no = new JButton("No");
-        this.no.setBounds(200, this.getHeight() - 60, 200, 60);
+        this.no.setBounds(170, this.getHeight() - 40, 130, 30);
         this.add(this.no);
         this.no.addActionListener(this);
         this.no.setVisible(true);
         
         this.salir = new JButton("Salir");
-        this.salir.setBounds(400, this.getHeight() - 60, 100, 60);
+        this.salir.setBounds(350, this.getHeight() - 40, 90, 30);
         this.add(this.salir);
         this.salir.addActionListener(this);
         this.salir.setVisible(true);
@@ -85,9 +86,8 @@ public class Juego <E extends Comparable <E>> extends JFrame implements ActionLi
     
     public String recorrer(boolean bool) {
         if (this.nodo.getNo() == null && this.nodo.getSi() == null) {
-            System.out.println("Entre a nodo raiz");
             if (bool == false) {
-                this.getArbol().agregar(new JOptionPane().showInputDialog("No se! :( Cual es el animal?"),new JOptionPane().showInputDialog("Cual seria la pregunta de si/no que tendria que hacer?"),this.nodo,2);
+                this.getArbol().agregar(new JOptionPane().showInputDialog("No se! :( Cual es el animal? ") + " ",new JOptionPane().showInputDialog("Cual seria la pregunta de si/no que tendria que hacer?") + " ",this.nodo,2);
                 this.ganador = true;
                 return null;
             } else {
@@ -97,8 +97,7 @@ public class Juego <E extends Comparable <E>> extends JFrame implements ActionLi
         } else {
             if (bool == true) {
                 if (this.nodo.getSi() == null && this.nodo.getNo() != null) {
-                    System.out.println("No se! Cual es el animal?");
-                    this.getArbol().agregar(new JOptionPane().showInputDialog("No se! :( Cual es el animal?"),new JOptionPane().showInputDialog("Cual seria la pregunta de si/no que tendria que hacer?"),this.nodo,1);
+                    this.getArbol().agregar(new JOptionPane().showInputDialog("No se! :( Cual es el animal? ") + " ",new JOptionPane().showInputDialog("Cual seria la pregunta de si/no que tendria que hacer?") + " ",this.nodo,1);
                     this.ganador = true;
                     return this.nodo.getPregunta();
                 } else {
@@ -106,8 +105,7 @@ public class Juego <E extends Comparable <E>> extends JFrame implements ActionLi
                 }
             } else {
                 if (this.nodo.getNo() == null && this.nodo.getSi() != null) {
-                    System.out.println("Nose! Me puedes decir la respuesta?");
-                    this.getArbol().agregar(new JOptionPane().showInputDialog("No se! :( Cual es el animal?"),new JOptionPane().showInputDialog("Cual seria la pregunta de si/no que tendria que hacer?"),this.nodo,0);
+                    this.getArbol().agregar(new JOptionPane().showInputDialog("No se! :( Cual es el animal? ") + " ",new JOptionPane().showInputDialog("Cual seria la pregunta de si/no que tendria que hacer?") + " ",this.nodo,0);
                     this.ganador = true;
                     return this.nodo.getPregunta();
                 } else {
@@ -118,23 +116,23 @@ public class Juego <E extends Comparable <E>> extends JFrame implements ActionLi
         return this.nodo.getPregunta();
     }
 
-    public void estilos(Graphics g) {
+    public void paint(Graphics g) {
         super.paint(g);
-        this.setBackground(Color.DARK_GRAY);
-        Font fuente = new Font("arial", Font.BOLD, 16);
+        this.setBackground(Color.WHITE);
+        Font fuente = new Font("arial", Font.BOLD, 17);
         g.setFont(fuente);
         g.setColor(Color.BLACK);
         this.mensaje(g);
     }
     
     public void mensaje(Graphics g) {
-        int y = 90, k = 20, w = 0, z = this.nodo.getPregunta().length();
+        int x = 30, y = 70, k = 47, w = 0, z = this.nodo.getPregunta().length();
         for(int i = 0; i < this.nodo.getPregunta().length(); i++){
-            g.drawString(this.nodo.getPregunta().substring(w, i), 160, y);
+            g.drawString(this.nodo.getPregunta().substring(w, i), x, y);
             if (i >= k) {
-                y += 14;
-                k += 20;
-                w += 20;
+                y += 19;
+                k += 47;
+                w += 47;
             }
         }
     }
@@ -150,6 +148,7 @@ public class Juego <E extends Comparable <E>> extends JFrame implements ActionLi
                     j = new Juego<String>(new Arbol<String>());
                 } else {
                     bandera = true;
+                    System.exit(0);
                 }
             }
         }

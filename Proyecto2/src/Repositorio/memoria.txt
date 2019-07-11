@@ -1,1 +1,1 @@
-inicio@Bienvenido!! Vamos a jugar. Piensa en un animal y yo trato de adivinar! Tiene mas de 4 patas?,+@Hace telarañas?,++@Araña,+-@Chupa sangre de tu cuerpo?,+-+@Zancudo,-@Ladra?,-+@Perro
+inicio@Bienvenido!! Vamos a jugar. Piensa en un animal y yo trato de adivinar! Tiene mas de 4 patas? ,+@Hace telarañas? ,++@Araña ,+-@Chupa sangre de tu cuerpo? ,+--@Es asquerosa y vive en la basura? ,+--+@Cucaracha ,-@Ladra? ,--@Mitad Castor y Mitad Pato? ,---@Tiene caparazon? ,---+@Tortuga 

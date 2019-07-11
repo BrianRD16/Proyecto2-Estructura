@@ -76,28 +76,30 @@ public class Arbol <E extends Comparable <E>> {
     }
     
     public void construir(String archivo) {
-        try {
+        try{
             FileReader data = new FileReader(archivo);
-            try (BufferedReader leer = new BufferedReader(data)) {
-                String linea;
-                String frase;
-                String via;
-                String referencia;
+            BufferedReader leer = new BufferedReader(data);
+            String linea;
+            String frase;
+            String via;
+            String referencia;
                 
-                while ((linea = leer.readLine()) != null) {
-                    StringTokenizer kenizer = new StringTokenizer(linea, ",");
-                    while (kenizer.hasMoreTokens()) {
-                        frase = kenizer.nextToken();
-                        StringTokenizer otroKenizer = new StringTokenizer(frase, "@");
-                        while (otroKenizer.hasMoreTokens()) {
-                            via = otroKenizer.nextToken();
-                            referencia = otroKenizer.nextToken();
-                            this.insertar(referencia, via);
-                        }
+            while ((linea = leer.readLine()) != null){
+                StringTokenizer kenizer = new StringTokenizer(linea, ",");
+                while (kenizer.hasMoreTokens()) {
+                    frase = kenizer.nextToken();
+                    StringTokenizer otroKenizer = new StringTokenizer(frase, "@");
+                    while (otroKenizer.hasMoreTokens()) {
+                        via = otroKenizer.nextToken();
+                        referencia = otroKenizer.nextToken();
+                        this.insertar(referencia, via);
                     }
                 }
             }
-        } catch (IOException e) {}
+            leer.close();
+        }catch(IOException e){
+            e.printStackTrace();
+        }
     }
     
     public void guardar() {
